@@ -33,6 +33,8 @@ var getTime = function(cb){
   var data = {};
   var speech =  'Il est ' + (date.getUTCHours() + 1) + ':' + date.getUTCMinutes() + ' et ' + date.getUTCSeconds() + " secondes.";
   var response = apiHelper.createResponse(speech, speech, data, 'Crédit Mutuel Arkéa');
-  cb(response);
+  if(cb){
+    cb(response);
+  }
   return response;
 }
