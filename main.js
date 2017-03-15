@@ -1,6 +1,4 @@
 var apiHelper = require('./apiaiHelper.js');
-var conferencesDao = require('./dao/conferences.js');
-var speakersDao = require('./dao/speakers.js');
 
 var bodyParser = require('body-parser')
 var express = require('express');
