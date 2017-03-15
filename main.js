@@ -20,7 +20,21 @@ app.get('/time', function(req, res){
 
 // Endpoint for api.ai
 app.post('/apiwebhook', function(req, res){
+  //check authentication
+  if(req.headers.token != 'token'){
+    console.log("token inccorect : " + req.headers.token);
+    res.statusCode = 401;
+    res.send('error');
+  } else {
+    console.log("apiwebhook " + JSON.stringify(req.body));
 
+    if(req.body.result.action == 'get_time'){
+
+        var date = getTime();
+          res.send(date);
+
+    }
+  }
 });
 
 http.listen(8080, function(){
